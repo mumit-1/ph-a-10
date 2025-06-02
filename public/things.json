@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Classic Leather Boots",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6366a129-3803-446e-9462-59407f184d89/LEGEND+10+ACADEMY+FG%2FMG.png",
+    "price": 59.99,
+    "category": "Footwear"
+  },
+  {
+    "name": "Mountain Hiking Boots",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/a7af1728-0efb-4111-8ed2-816f9e00fb67/ZM+SUPERFLY+10+ELITE+KM+FG.png",
+    "price": 89.99,
+    "category": "Outdoor"
+  },
+  {
+    "name": "Winter Snow Boots",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f71f58eb-ad7b-4495-acd0-163411f79298/ZM+SUPERFLY+10+ELITE+FG.png",
+    "price": 74.50,
+    "category": "Winterwear"
+  },
+  {
+    "name": "Chelsea Ankle Boots",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/615bd8bf-ea41-487a-b3e1-70399eef6be6/ZM+SUPERFLY+10+ACAD+FG%2FMG.png",
+    "price": 68.00,
+    "category": "Fashion"
+  },
+  {
+    "name": "Tactical Combat Boots",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d228fdf9-d63a-4d4d-9f6c-1613e021eec6/ZM+SUPERFLY+10+ELT+AM+95+SE+FG.png",
+    "price": 95.25,
+    "category": "Military"
+  }
+]

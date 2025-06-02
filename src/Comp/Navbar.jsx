@@ -19,7 +19,7 @@ const Navbar = () => {
               </li>
     </>
   return (
- <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-screen-lg z-50">
+ <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-screen-lg z-50 pr-2">
   <div className="">
     <div className={`navbar shadow-2xl ${dark?" bg-black/25" : "bg-white/10"}  backdrop-blur-md rounded-full`}>
       <div className="navbar-start">
@@ -42,25 +42,27 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
+            className={`menu menu-sm dropdown-content ${dark? "bg-black/85  ":"bg-white/80 text-10"} rounded-xl backdrop-blur-sm z-10 mt-6 w-52 p-2 shadow-2xl `}
           >
             {link}
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl text-[#FFEB00] ">CoreUp</a>
+        <a className=" text-3xl text-[#FFEB00] ">CoreUp</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{link}</ul>
       </div>
       <div className="navbar-end">
-        <a className={`btn px-[13px] rounded-full transition-all duration-200 hover:drop-shadow-2xl ${
+        <button className={`btn px-[13px] rounded-full transition-all duration-200 hover:drop-shadow-2xl ${
     dark
       ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
       : "bg-black text-[#FFEB00] hover:bg-[#FFEB00] hover:text-black"
   } mr-2`}
   onClick={handleDark}
-  >{dark?<FaMoon />:<FaRegMoon />}</a>
-    <a
+  >{dark?<FaMoon />:<FaRegMoon />}
+  
+  </button>
+    <button
   className={`btn rounded-full transition-all duration-200 hover:drop-shadow-2xl ${
     dark
       ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
@@ -68,7 +70,7 @@ const Navbar = () => {
   }`}
 >
   Button
-</a>
+</button>
 
 
       </div>

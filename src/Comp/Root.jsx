@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
 import Landing from './Landing';
 import Navbar from './Navbar';
+import { AuthProvider } from '../Provider/Provider';
 
 const Root = () => {
+    const {dark} = useContext(AuthProvider);
     return (
-        <div className='unbounded'>
+        <div className={`unbounded ${dark? "bg-black text-white":"bg-white text-black"} `}>
             <div className=''>
             
-                <Navbar></Navbar>
+                <Navbar ></Navbar>
             
-            <Landing></Landing>
+            {/* <Landing></Landing> */}
+                
                 <Outlet></Outlet>
+                
             </div>
         </div>
     );
