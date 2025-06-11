@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthProvider } from "../Provider/Provider";
 import { FaMoon, FaRegMoon } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const {dark,setDark} = useContext(AuthProvider);
@@ -9,10 +10,10 @@ const Navbar = () => {
     }
     const link = <>
     <li className="">
-                <a>Item 1</a>
+                <Link to="/login">Login</Link>
               </li>
               <li>
-                <a>Parent</a>
+                <Link to="/signup">Sign up</Link>
               </li>
               <li>
                 <a>Item 3</a>
