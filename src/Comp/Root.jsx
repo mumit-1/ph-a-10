@@ -7,7 +7,7 @@ import { AuthProvider } from '../Provider/Provider';
 const Root = () => {
     const {dark} = useContext(AuthProvider);
     return (
-        <div className={`unbounded ${dark? "bg-black text-white":"bg-white text-black"} `}>
+        <div className={`unbounded ${dark? "bg-[#222222] text-white":"bg-[#FBFBFB] text-black"} `}>
             <div className=''>
             
                 <Navbar ></Navbar>

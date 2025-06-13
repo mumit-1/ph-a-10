@@ -31,8 +31,8 @@ const Landing = () => {
           className="w-full brightness-75 lg:hidden md:hidden hidden  custom-sm:block"
         />
         <div
-          className={`absolute -bottom-1 left-0 w-full h-1/3 bg-gradient-to-t ${
-            dark ? "from-black/100" : "from-white/100"
+          className={`absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t ${
+            dark ? "from-[#222222]/100" : "from-[#FBFBFB]/100"
           }  border-b-0 to-transparent`}
         ></div>{" "}
       </div>

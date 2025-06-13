@@ -1,28 +1,30 @@
 import React, { useContext } from "react";
 import { AuthProvider } from "../Provider/Provider";
 import { FaMoon, FaRegMoon } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
     const {dark,setDark} = useContext(AuthProvider);
+    const locate = useLocation();
     const handleDark = () => {
         setDark(!dark);
-    }
+        
+    } 
     const link = <>
-    <li className="">
+              <button className={`${locate.pathname==="/login"? "border-b-2 border-[#FFEB00]" : null} hover:-translate-y-0.5 transition duration-650`}>
                 <Link to="/login">Login</Link>
-              </li>
-              <li>
+              </button>
+              <button className={`${locate.pathname==="/signup" ? "border-b-2 border-[#FFEB00]" : null} hover:-translate-y-1 transition duration-650`}>
                 <Link to="/signup">Sign up</Link>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              </button>
+              <button className={`${locate.pathname==="/"? "border-b-2 border-[#FFEB00]" : null} hover:-translate-y-1 transition duration-650`}>
+                <Link to="/">Home</Link>
+              </button>
     </>
   return (
  <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-screen-lg z-50 px-2">
   <div className="">
-    <div className={`navbar shadow-2xl ${dark?" bg-black/25" : "bg-white/10"}  backdrop-blur-md rounded-full`}>
+    <div className={`navbar shadow-2xl ${dark?" bg-black/30" : "bg-white/30"}  backdrop-blur-md rounded-full px-4`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,18 +46,19 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className={`menu menu-sm dropdown-content ${dark? "bg-black/85  ":"bg-white/80 text-10"} rounded-xl backdrop-blur-sm z-10 mt-6 w-52 p-2 shadow-2xl `}
+            className={`menu menu-sm dropdown-content ${dark? "bg-black/85  ":"bg-white/80 "} rounded-xl backdrop-blur-sm z-10 mt-6 w-52 p-2 shadow-2xl `}
           >
             {link}
           </ul>
         </div>
-        <a className=" text-3xl text-[#FFEB00] ">CoreUp</a>
+        <a className=" text-3xl text-[#FFEB00] drop-shadow-2xl">CoreUp</a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-white">{link}</ul>
+        
+        <ul className={`space-x-7 menu-horizontal px-1  ${dark?" text-white" : "text-black"}`}>{link}</ul>
       </div>
       <div className="navbar-end">
-        <button className={`btn px-[13px] rounded-full transition-all duration-200 hover:drop-shadow-2xl ${
+        <button className={`btn px-[13px] rounded-full transition-all duration-200 hover:drop-shadow-2xl border-0 ${
     dark
       ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
       : "bg-black text-[#FFEB00] hover:bg-[#FFEB00] hover:text-black"
@@ -65,7 +68,7 @@ const Navbar = () => {
   
   </button>
     <button
-  className={`btn rounded-full transition-all duration-200 hover:drop-shadow-2xl ${
+  className={`btn rounded-full transition-all duration-200 hover:drop-shadow-2xl border-0  ${
     dark
       ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
       : "bg-black text-[#FFEB00] hover:bg-[#FFEB00] hover:text-black"

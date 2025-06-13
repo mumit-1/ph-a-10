@@ -11,12 +11,14 @@ import { toast } from "react-toastify";
 import React from "react";
 import { AuthProvider } from "../Provider/Provider";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { Link } from "react-router-dom";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 // import { Helmet } from "react-helmet-async";
 const Login = () => {
  useEffect(() => {
    AOS.init({ duration: 1000 });
  }, []);
- 
+  const [privacy, setPrivacy] = useState(false);
  const {dark} = useContext(AuthProvider);
     return (
           <div className="max-w-screen-lg mx-auto  lg:h-screen h-screen  pb-10 pt-32 lg:pt-0 md:pt-16">
@@ -36,6 +38,7 @@ const Login = () => {
       loop
       autoplay
       className="border-2 border-transparent    lg:pb-96 lg:w-full  absolute lg:ml-0 "
+      speed='0.75'
     />
             {/* <DotLottieReact
      src="https://lottie.host/5122c510-b8ac-4837-926d-57205cde4774/p9pembxzaF.lottie"
@@ -67,15 +70,24 @@ const Login = () => {
                       required
                     />
                   </div>
-                  <div className="mt-4">
+               <div className="mt-4">
                     <label className="block text-sm font-medium pl-2 opacity-80">Password</label>
-                    <input
-                      type="password"
-                      name="pass"
-                      className={`w-full border-2 ${dark?"border-gray-400":"border-gray-400"} rounded-full p-2 focus:outline-none bg-transparent  focus:ring-2 focus:ring-blue-500`}
-                    />
-                  </div>
-            
+                    <div className="flex relative">
+                      <input
+                        type={privacy ? "text" : "password"}
+                        name="pass"
+                        className={`w-full border-2 ${dark ? "border-gray-400" : "border-gray-400"} rounded-full p-2 focus:outline-none bg-transparent focus:ring-2 focus:ring-blue-500`}
+                        required
+                      />
+                      <button 
+                        type="button"
+                        className="absolute right-3.5 top-3"
+                        onClick={() => setPrivacy(!privacy)}
+                      >
+                        {privacy ? <FiEye /> : <FiEyeOff />}
+                      </button>
+                    </div>
+            </div>
                       <button
               className={`btn w-full mt-4  rounded-full transition-all duration-200 hover:drop-shadow-2xl ${
                 dark
@@ -95,9 +107,9 @@ const Login = () => {
                 </button>
                 <p className="text-center text-sm mt-4">
                   Don't have an account?{" "}
-                  {/* <Link to="/register" className="text-blue-500">
+                  <Link to="/signup" className="text-blue-500">
                     Sign Up
-                  </Link> */}
+                  </Link>
                 </p>
               </div>
             </div>
