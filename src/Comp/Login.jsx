@@ -19,7 +19,24 @@ const Login = () => {
    AOS.init({ duration: 1000 });
  }, []);
   const [privacy, setPrivacy] = useState(false);
- const {dark} = useContext(AuthProvider);
+ const {dark,loginAcc,setUser} = useContext(AuthProvider);
+   const Signin = (e) => {
+    
+    e.preventDefault();
+    const email = e.target.email.value;
+    // setEmail(emailX);  
+    const pass = e.target.pass.value;
+    loginAcc(email, pass)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
+        // navigate(locate);
+        toast("Successfully logged in!");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  };
     return (
           <div className="max-w-screen-lg mx-auto  lg:h-screen h-screen  pb-10 pt-32 lg:pt-0 md:pt-16">
             <div className="   w-full  lg:pt-52     p-5">
@@ -31,15 +48,15 @@ const Login = () => {
                     // key={useLocation().pathname}
                   >
                     <div className="flex flex-col  lg:gap-10 items-center justify-center ">
-            <div className="lg:w-full  w-full flex items-center   mb-32 md:mb-40 lg:mb-0  relative">
+            <div className="lg:w-full  w-full flex items-center   mb-32 md:mb-40 lg:mb-0  relative md:-top-56 lg:-top-[450px] -top-[130px]">
       
-            <DotLottieReact
-     src="https://lottie.host/5122c510-b8ac-4837-926d-57205cde4774/p9pembxzaF.lottie"
-      loop
-      autoplay
-      className="border-2 border-transparent    lg:pb-96 lg:w-full  absolute lg:ml-0 "
-      speed='0.75'
-    />
+           <DotLottieReact
+  src="https://lottie.host/5122c510-b8ac-4837-926d-57205cde4774/p9pembxzaF.lottie"
+  loop
+  autoplay
+  className="w-full  relative "
+  speed={0.75}
+/>
             {/* <DotLottieReact
      src="https://lottie.host/5122c510-b8ac-4837-926d-57205cde4774/p9pembxzaF.lottie"
       loop
@@ -49,7 +66,7 @@ const Login = () => {
             </div>
             {/* login */}
             <div
-              className="lg:w-1/2 w-full lg:my-0 md:my-10 mb-5 lg:ml-0  lg:justify-start"
+              className="lg:w-1/2 w-full lg:my-0 md:my-10 mb-5 lg:ml-0  lg:justify-start absolute md:top-52 lg:top-56  top-56"
               data-aos="zoom-in"
             >
               <div className="w-[330px] mx-auto ">
@@ -59,7 +76,7 @@ const Login = () => {
                 <p className="text-gray-500 text-center">
                   Please enter your details
                 </p>
-                <form className="mt-4" >
+                <form className="mt-4" onSubmit={Signin}>
                   <div>
                     <label className="block text-sm font-medium pl-2 opacity-80">Email</label>
                     <input

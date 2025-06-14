@@ -16,7 +16,7 @@ const SignUp = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const { dark } = useContext(AuthProvider);
+  const { dark,createAcc,updateAcc,setUser} = useContext(AuthProvider);
   const [validation, setValidation] = useState("");
   const [privacy, setPrivacy] = useState(false);
   const pathname = useLocation();
@@ -43,38 +43,40 @@ const SignUp = () => {
     const name = e.target.name.value;
     const pass = e.target.pass.value;
 
-    if (!/[A-Z]/.test(pass)) {
-      setValidation("Password must contain at least one uppercase letter.");
-    } else if (!/[a-z]/.test(pass)) {
-      setValidation("Password must contain at least one lowercase letter.");
-    } else if (pass.length < 6) {
-      setValidation("Password must be at least 6 characters long.");
-    }
-    if (validation) {
-      return;
-    }
+      // if (!/[A-Z]/.test(pass)) {
+      //   setValidation("Password must contain at least one uppercase letter.");
+      // } else if (!/[a-z]/.test(pass)) {
+      //   setValidation("Password must contain at least one lowercase letter.");
+      // } else if (pass.length < 6) {
+      //   setValidation("Password must be at least 6 characters long.");
+      // }
+      // if (validation) {
+      //   return;
+      // }
     setValidation("");
-    // EmailPass(email, pass)
-    //   .then((result) => {
-    //     setUser(result.user);
-    //     update({ photoURL: photo, displayName: name })
-    //       .then(() => {})
-    //       .catch((error) => console.log(error));
-    //     navigate(locate);
-    //     toast("Welcome Aboard!");
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     if (error.code === "auth/email-already-in-use") {
-    //       setValidation(
-    //         "This email is already registered. Please use a different email."
-    //       );
-    //     } else if (error.code === "auth/invalid-email") {
-    //       setValidation("Invalid email format. Please enter a valid email.");
-    //     } else {
-    //       setValidation("Something went wrong. Please try again.");
-    //     }
-    //   });
+    createAcc(email, pass)
+      .then((result) => {
+        setUser(result.user);
+        console.log(result.user);
+        updateAcc ({ photoURL: photo, displayName: name })
+          .then(() => {})
+          .catch((error) => console.log(error));
+        navigate(locate);
+        console.log(pathname.state);
+        toast("Welcome Aboard!");
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.code === "auth/email-already-in-use") {
+          setValidation(
+            "This email is already registered. Please use a different email."
+          );
+        } else if (error.code === "auth/invalid-email") {
+          setValidation("Invalid email format. Please enter a valid email.");
+        } else {
+          setValidation("Something went wrong. Please try again.");
+        }
+      });
   };
 
 //   useEffect(() => {
