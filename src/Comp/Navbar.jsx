@@ -2,10 +2,12 @@ import React, { useContext } from "react";
 import { AuthProvider } from "../Provider/Provider";
 import { FaMoon, FaRegMoon } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+import { PiSignOutBold } from "react-icons/pi";
 
 const Navbar = () => {
-    const {dark,setDark} = useContext(AuthProvider);
+    const {dark,setDark,user} = useContext(AuthProvider);
     const locate = useLocation();
+    console.log(user);
     const handleDark = () => {
         setDark(!dark);
         
@@ -67,7 +69,7 @@ const Navbar = () => {
   >{dark?<FaMoon />:<FaRegMoon />}
   
   </button>
-    <button
+    {/* <button
   className={`btn rounded-full transition-all duration-200 hover:drop-shadow-2xl border-0  ${
     dark
       ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
@@ -75,8 +77,41 @@ const Navbar = () => {
   }`}
 >
   Button
-</button>
-
+</button> */}
+ {user && user?.email ? (
+            <div className="flex bg-base-200 border p-1.5 rounded-full">
+              <Link
+                to="/profile"
+                className="flex justify-center items-center tooltip tooltip-bottom"
+                data-tip={user.displayName}
+              >
+                <div className="avatar">
+                  <div className="w-12 rounded-full">
+                    <img src={user.photoURL} />
+                  </div>
+                </div>
+              </Link>
+              <button
+                className="btn rounded-full hover:bg-transparent tooltip tooltip-bottom bg-transparent border-0 shadow-none"
+                // onClick={}
+                data-tip="Log Out"
+              >
+                <PiSignOutBold className="text-xl text-red-600" />
+                {/* Log Out  */}
+              </button>
+            </div>
+          ) : locate.pathname === "/login" ||
+            locate.pathname === "/signup" ? null : (
+            <Link to="/login"
+             className={`btn rounded-full transition-all duration-200 hover:drop-shadow-2xl border-0  ${
+    dark
+      ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
+      : "bg-black text-[#FFEB00] hover:bg-[#FFEB00] hover:text-black"
+  }`}
+             >
+              Sign in
+            </Link>
+          )}
 
       </div>
     </div>
