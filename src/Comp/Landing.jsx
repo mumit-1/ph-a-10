@@ -6,7 +6,8 @@ import Rooney3 from "./../assets/wallpaperflare.com_wallpaperCustom.jpg";
 import { Fade, Slide } from "react-awesome-reveal";
 import { AuthProvider } from "../Provider/Provider";
 const Landing = () => {
-  const { dark } = useContext(AuthProvider);
+  const { dark,user } = useContext(AuthProvider);
+  
   return (
     <div className="relative h-screen lg:mb-28 md:mb-12 -mb-32">
       <div className="absolute ">

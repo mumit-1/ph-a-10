@@ -5,20 +5,20 @@ import { Link, useLocation } from "react-router-dom";
 import { PiSignOutBold } from "react-icons/pi";
 
 const Navbar = () => {
-    const {dark,setDark,user} = useContext(AuthProvider);
+    const {dark,setDark,user,logout} = useContext(AuthProvider);
     const locate = useLocation();
-    console.log(user);
+    
     const handleDark = () => {
         setDark(!dark);
         
     } 
     const link = <>
-              <button className={`${locate.pathname==="/login"? "border-b-2 border-[#FFEB00]" : null} hover:-translate-y-0.5 transition duration-650`}>
+              {user && user?.email ? null : <button className={`${locate.pathname==="/login"? "border-b-2 border-[#FFEB00]" : null} hover:-translate-y-0.5 transition duration-650`}>
                 <Link to="/login">Login</Link>
-              </button>
-              <button className={`${locate.pathname==="/signup" ? "border-b-2 border-[#FFEB00]" : null} hover:-translate-y-1 transition duration-650`}>
+              </button>}
+             {user && user?.email ? null :  <button className={`${locate.pathname==="/signup" ? "border-b-2 border-[#FFEB00]" : null} hover:-translate-y-1 transition duration-650`}>
                 <Link to="/signup">Sign up</Link>
-              </button>
+              </button>}
               <button className={`${locate.pathname==="/"? "border-b-2 border-[#FFEB00]" : null} hover:-translate-y-1 transition duration-650`}>
                 <Link to="/">Home</Link>
               </button>
@@ -69,31 +69,27 @@ const Navbar = () => {
   >{dark?<FaMoon />:<FaRegMoon />}
   
   </button>
-    {/* <button
-  className={`btn rounded-full transition-all duration-200 hover:drop-shadow-2xl border-0  ${
+
+ {user && user?.email ? (
+            <div   className={`flex p-0.5 rounded-full transition-all duration-200 hover:drop-shadow-2xl border-0  ${
     dark
       ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
       : "bg-black text-[#FFEB00] hover:bg-[#FFEB00] hover:text-black"
-  }`}
->
-  Button
-</button> */}
- {user && user?.email ? (
-            <div className="flex bg-base-200 border p-1.5 rounded-full">
+  }`}>
               <Link
                 to="/profile"
                 className="flex justify-center items-center tooltip tooltip-bottom"
                 data-tip={user.displayName}
               >
                 <div className="avatar">
-                  <div className="w-12 rounded-full">
+                  <div className="w-9 rounded-full ml-0.5">
                     <img src={user.photoURL} />
                   </div>
                 </div>
               </Link>
               <button
                 className="btn rounded-full hover:bg-transparent tooltip tooltip-bottom bg-transparent border-0 shadow-none"
-                // onClick={}
+                onClick={()=>logout()}
                 data-tip="Log Out"
               >
                 <PiSignOutBold className="text-xl text-red-600" />
@@ -112,6 +108,7 @@ const Navbar = () => {
               Sign in
             </Link>
           )}
+
 
       </div>
     </div>

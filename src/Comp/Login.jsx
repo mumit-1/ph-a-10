@@ -19,7 +19,7 @@ const Login = () => {
    AOS.init({ duration: 1000 });
  }, []);
   const [privacy, setPrivacy] = useState(false);
- const {dark,loginAcc,setUser} = useContext(AuthProvider);
+ const {dark,loginAcc,setUser,googleLogIn} = useContext(AuthProvider);
    const Signin = (e) => {
     
     e.preventDefault();
@@ -116,8 +116,8 @@ const Login = () => {
             </button>
                 </form>
                 <button
-            
-                  className="mt-2 w-full bg-gray-100 text-black rounded-full py-2 flex items-center justify-center hover:bg-gray-200 transition "
+              onClick={()=>googleLogIn()}
+                  className="mt-2 w-full bg-gray-100 text-black rounded-full py-2 flex items-center justify-center hover:bg-transparent border-2 transition "
                 >
                   <img src={Google} className="w-7 h-7 " alt="" />
                   {/* <span className=" -ml-1 font-bold">oogle</span> */}
