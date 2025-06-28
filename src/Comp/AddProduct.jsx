@@ -35,9 +35,18 @@ const AddProduct = () => {
       return;
     }
 
-    console.log(product); // Replace with API call
+    console.log(product); 
+fetch("http://localhost:5100/addProduct", {
+  method: "post",
+  headers: {
+    "content-type": "application/json",
+  },
+  body: JSON.stringify(product),
+})
+  .then(res => res.json())
+  .then(data => console.log(data.insertedId));
     toast.success("Product Added Successfully!");
-    form.reset();
+    // form.reset();
   };
 
   return (
