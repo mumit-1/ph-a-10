@@ -5,6 +5,7 @@ import Rooney2 from "./../assets/wallpaperflare.com_wallpaperSM.jpg";
 import Rooney3 from "./../assets/wallpaperflare.com_wallpaperCustom.jpg";
 import { Fade, Slide } from "react-awesome-reveal";
 import { AuthProvider } from "../Provider/Provider";
+import { Link } from "react-router-dom";
 const Landing = () => {
   const { dark,user } = useContext(AuthProvider);
   
@@ -61,15 +62,16 @@ const Landing = () => {
           >
             Buy Product
           </button>
-          <button
+          <Link to="/addProduct"
             className={`btn px-[13px] rounded-full transition-all duration-200 hover:drop-shadow-2xl border-0 ${
               dark
                 ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
                 : "bg-black text-[#FFEB00] hover:bg-[#FFEB00] hover:text-black"
             } mr-2 z-10 `}
+            
           >
             Add product
-          </button>
+          </Link>
         </div>
       </div>
     </div>
