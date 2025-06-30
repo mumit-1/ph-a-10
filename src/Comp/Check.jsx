@@ -1,13 +1,15 @@
-import React, { Children, useState } from 'react';
+import React, { Children, useContext, useState } from 'react';
+import { AuthProvider } from '../Provider/Provider';
+import Login from './Login';
 
 const Check = ({children}) => {
     const [ok,setOK] = useState(true);
-    
-    if(ok){
-         return <></>;
+    const {user} = useContext(AuthProvider);
+    if(user){
+        return children;
     }
     else{
-        {children}
+        return <Login></Login>;
     }
 };
 

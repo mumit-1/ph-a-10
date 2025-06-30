@@ -1,32 +1,62 @@
 [
   {
-    "name": "Classic Leather Boots",
+    "_id": "686258c3d226b5f1fb4a80c1",
     "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/6366a129-3803-446e-9462-59407f184d89/LEGEND+10+ACADEMY+FG%2FMG.png",
+    "name": "Classic Leather Boots",
+    "category": "Footwear",
+    "description": "Timeless leather boots for everyday wear",
     "price": 59.99,
-    "category": "Footwear"
+    "rating": 4.5,
+    "customization": "Available in 3 colors",
+    "processingTime": "2-3 days",
+    "stock": 50
   },
   {
-    "name": "Mountain Hiking Boots",
+    "_id": "686258c3d226b5f1fb4a80c2",
     "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/a7af1728-0efb-4111-8ed2-816f9e00fb67/ZM+SUPERFLY+10+ELITE+KM+FG.png",
+    "name": "Mountain Hiking Boots",
+    "category": "Outdoor",
+    "description": "Durable boots for rugged mountain trails",
     "price": 89.99,
-    "category": "Outdoor"
+    "rating": 4.8,
+    "customization": "Waterproof options available",
+    "processingTime": "3-5 days",
+    "stock": 35
   },
   {
-    "name": "Winter Snow Boots",
+    "_id": "686258c3d226b5f1fb4a80c3",
     "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f71f58eb-ad7b-4495-acd0-163411f79298/ZM+SUPERFLY+10+ELITE+FG.png",
+    "name": "Winter Snow Boots",
+    "category": "Winterwear",
+    "description": "Insulated boots for extreme cold weather",
     "price": 74.50,
-    "category": "Winterwear"
+    "rating": 4.6,
+    "customization": "Available with fur lining",
+    "processingTime": "4-6 days",
+    "stock": 28
   },
   {
-    "name": "Chelsea Ankle Boots",
+    "_id": "686258c3d226b5f1fb4a80c4",
     "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/615bd8bf-ea41-487a-b3e1-70399eef6be6/ZM+SUPERFLY+10+ACAD+FG%2FMG.png",
+    "name": "Chelsea Ankle Boots",
+    "category": "Fashion",
+    "description": "Stylish ankle boots for urban fashion",
     "price": 68.00,
-    "category": "Fashion"
+    "rating": 4.3,
+    "customization": "Multiple leather finishes",
+    "processingTime": "1-2 days",
+    "stock": 42
   },
   {
-    "name": "Tactical Combat Boots",
+    "_id": "686258c3d226b5f1fb4a80c5",
     "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d228fdf9-d63a-4d4d-9f6c-1613e021eec6/ZM+SUPERFLY+10+ELT+AM+95+SE+FG.png",
+    "name": "Tactical Combat Boots",
+    "category": "Military",
+    "description": "High-performance boots for tactical operations",
     "price": 95.25,
-    "category": "Military"
+    "rating": 4.9,
+    "customization": "Custom insignia available",
+    "processingTime": "5-7 days",
+    "stock": 20
   }
 ]

@@ -4,6 +4,7 @@ import HomeLayout from "./Comp/HomeLayout";
 import Login from "./Comp/Login";
 import SignUp from "./Comp/SignUp";
 import AddProduct from "./Comp/AddProduct";
+import Check from "./Comp/Check";
 
 const Router = createBrowserRouter([
 
@@ -29,7 +30,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: <Check><AddProduct></AddProduct></Check>,
     
       },
       

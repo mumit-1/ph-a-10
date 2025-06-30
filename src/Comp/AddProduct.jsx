@@ -5,7 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const AddProduct = () => {
-  const { dark } = useContext(AuthProvider);
+  const { dark,user } = useContext(AuthProvider);
   const [validation, setValidation] = useState("");
 
   useEffect(() => {
@@ -27,9 +27,9 @@ const AddProduct = () => {
       customization: form.customization.value,
       processingTime: form.processingTime.value,
       stock: parseInt(form.stock.value),
+      userEmail: user?.email,
+      userName: user?.displayName,
     };
-
-    // OPTIONAL: Validate numeric fields
     if (product.price <= 0 || product.rating < 0 || product.rating > 5 || product.stock < 0) {
       setValidation("Invalid numeric values. Please check price, rating, and stock.");
       return;
@@ -72,6 +72,7 @@ fetch("http://localhost:5100/addProduct", {
           className={`w-full border-2 ${dark ? "border-gray-400" : "border-gray-400"} rounded-full p-2 bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500`}
           required
         />
+        <p className="text-[10px] ml-3 opacity-70">https://i.ibb.co/qFXwTJxD/PHANTOM-6-HIGH-ELITE-FG-LV8.jpg</p>
       </div>
     
       {/* Item Name */}

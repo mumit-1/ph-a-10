@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import React from "react";
 import { AuthProvider } from "../Provider/Provider";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 // import { Helmet } from "react-helmet-async";
 const Login = () => {
@@ -20,6 +20,7 @@ const Login = () => {
  }, []);
   const [privacy, setPrivacy] = useState(false);
  const {dark,loginAcc,setUser,googleLogIn} = useContext(AuthProvider);
+
    const Signin = (e) => {
     
     e.preventDefault();
@@ -30,7 +31,7 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUser(user);
-        // navigate(locate);
+ 
         toast("Successfully logged in!");
       })
       .catch((error) => {
