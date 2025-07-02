@@ -5,6 +5,7 @@ import Login from "./Comp/Login";
 import SignUp from "./Comp/SignUp";
 import AddProduct from "./Comp/AddProduct";
 import Check from "./Comp/Check";
+import Detail from "./Comp/Detail";
 
 const Router = createBrowserRouter([
 
@@ -32,6 +33,12 @@ const Router = createBrowserRouter([
         path: "/addProduct",
         element: <Check><AddProduct></AddProduct></Check>,
     
+      },
+      {
+        path: "/product/:id",
+        element: <Detail></Detail>,
+          loader: ({ params }) =>
+          fetch(`http://localhost:5100/product/${params.id}`),
       },
       
     ],

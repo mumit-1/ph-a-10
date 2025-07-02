@@ -3,9 +3,10 @@ import { BsHeart } from "react-icons/bs";
 import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
 import { SlLike } from "react-icons/sl";
 import { AuthProvider } from "../Provider/Provider";
+import { Link } from "react-router-dom";
 
 const Thing = ({ info }) => {
-  const { name, image, price, category,description,stock,rating } = info;
+  const { name, image, price, category,description,stock,rating,_id } = info;
   const {dark} = useContext(AuthProvider);
     const [ok,setOk] = useState(true);  
   const handleLike = ()=>{
@@ -41,9 +42,9 @@ const Thing = ({ info }) => {
 
         {/* Buttons */}
         <div className="flex items-center justify-between pt-2">
-          <button   className={`btn  px-[13px] rounded-xl transition-all duration-200 hover:drop-shadow-2xl border-0 bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00] mr-2 z-10 `}>
+          <Link to={`/product/${_id}`}   className={`btn  px-[13px] rounded-xl transition-all duration-200 hover:drop-shadow-2xl border-0 bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00] mr-2 z-10 `}>
             ADD TO CART
-          </button>
+          </Link>
           <button className="btn bg-transparent border  border-gray-700 p-3 rounded-xl  transition-all" onClick={()=>setOk(!ok)}>
             {ok?<BsHeart />:<FaHeart className="text-red-600 " />}
           </button>
