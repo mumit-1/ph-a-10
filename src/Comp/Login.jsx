@@ -15,7 +15,8 @@ import { Link, useLocation } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 // import { Helmet } from "react-helmet-async";
 const Login = () => {
- useEffect(() => {
+
+  useEffect(() => {
    AOS.init({ duration: 1000 });
  }, []);
   const [privacy, setPrivacy] = useState(false);
