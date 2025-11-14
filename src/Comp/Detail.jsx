@@ -24,12 +24,12 @@ const Detail = () => {
 
   return (
         <div className={`max-w-screen-lg   mx-auto h-screen pt-28`}>
-      <div className={`rounded-2xl shadow-xl p-4 ${dark? "bg-black":"bg-white"} flex gap-4`}>
+      <div className={`rounded-3xl shadow-2xl  p-4 ${dark? "bg-black":"bg-white"} flex gap-4`}>
           <div>
               <img
                 src={image}
                 alt={name}
-                className="w-full h-[500px] object-cover rounded-xl "
+                className="w-full h-[500px] object-cover rounded-2xl "
               />
           </div>
           <div>

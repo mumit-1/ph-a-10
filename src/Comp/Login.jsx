@@ -1,4 +1,3 @@
-
 // import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import Google from "../assets/google.webp";
 import { useContext, useEffect, useRef, useState } from "react";
@@ -11,11 +10,15 @@ import { toast } from "react-toastify";
 import React from "react";
 import { AuthProvider } from "../Provider/Provider";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 // import { Helmet } from "react-helmet-async";
 const Login = () => {
-
+  const navigate = useNavigate();
+    const pathname = useLocation();
+    console.log(pathname.pathname);
+    const need = pathname.pathname!=="login" || pathname.pathname!=="signup" ? "" : pathname.pathname ;
+  const locate = need === null ? "/" : need;
   useEffect(() => {
    AOS.init({ duration: 1000 });
  }, []);
@@ -32,13 +35,26 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         setUser(user);
- 
+        navigate(locate);
         toast("Successfully logged in!");
       })
       .catch((error) => {
         alert(error);
       });
   };
+  const google =()=>{
+       googleLogIn()
+      .then((userCredential) => {
+        // const user = userCredential.user;
+        // setUser(user);
+        console.log(userCredential.user);
+        navigate(locate);
+        toast("Successfully logged in!");
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }
     return (
           <div className="max-w-screen-lg mx-auto  lg:h-screen h-screen  pb-10 pt-32 lg:pt-0 md:pt-16">
             <div className="   w-full  lg:pt-52     p-5">
@@ -51,14 +67,7 @@ const Login = () => {
                   >
                     <div className="flex flex-col  lg:gap-10 items-center justify-center ">
             <div className="lg:w-full  w-full flex items-center   mb-32 md:mb-40 lg:mb-0  relative md:-top-56 lg:-top-[450px] -top-[130px]">
-      
-           <DotLottieReact
-  src="https://lottie.host/5122c510-b8ac-4837-926d-57205cde4774/p9pembxzaF.lottie"
-  loop
-  autoplay
-  className="w-full  relative "
-  speed={0.75}
-/>
+     
             {/* <DotLottieReact
      src="https://lottie.host/5122c510-b8ac-4837-926d-57205cde4774/p9pembxzaF.lottie"
       loop
@@ -118,7 +127,7 @@ const Login = () => {
             </button>
                 </form>
                 <button
-              onClick={()=>googleLogIn()}
+              onClick={()=>google()}
                   className="mt-2 w-full bg-gray-100 text-black rounded-full py-2 flex items-center justify-center hover:bg-transparent border-2 transition "
                 >
                   <img src={Google} className="w-7 h-7 " alt="" />

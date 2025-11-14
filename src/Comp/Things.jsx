@@ -11,7 +11,7 @@ const Things = () => {
             setData1(data)
         })
     },[])
-    console.log(data1);
+    // console.log(data1);
     return (
         <div className='max-w-screen-lg mx-auto pr- pb-10'>
             <p className='lg:text-5xl text-4xl text-center'>Our Products</p>

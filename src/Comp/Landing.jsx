@@ -7,8 +7,8 @@ import { Fade, Slide } from "react-awesome-reveal";
 import { AuthProvider } from "../Provider/Provider";
 import { Link } from "react-router-dom";
 const Landing = () => {
-  const { dark,user } = useContext(AuthProvider);
-  
+  const { dark, user } = useContext(AuthProvider);
+
   return (
     <div className="relative h-screen lg:mb-28 md:mb-12 -mb-32">
       <div className="absolute ">
@@ -33,7 +33,7 @@ const Landing = () => {
           className="w-full brightness-75 lg:hidden md:hidden hidden  custom-sm:block"
         />
         <div
-          className={`absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t ${
+          className={`absolute -bottom-1 left-0 w-full h-1/3 bg-gradient-to-t ${
             dark ? "from-[#222222]/100" : "from-[#FBFBFB]/100"
           }  border-b-0 to-transparent`}
         ></div>{" "}
@@ -62,13 +62,13 @@ const Landing = () => {
           >
             Buy Product
           </button>
-          <Link to="/addProduct"
+          <Link
+            to="/addProduct"
             className={`btn px-[13px] rounded-full transition-all duration-200 hover:drop-shadow-2xl border-0 ${
               dark
                 ? "bg-[#FFEB00] text-black hover:bg-black hover:text-[#FFEB00]"
                 : "bg-black text-[#FFEB00] hover:bg-[#FFEB00] hover:text-black"
             } mr-2 z-10 `}
-            
           >
             Add product
           </Link>

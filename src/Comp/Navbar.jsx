@@ -26,7 +26,7 @@ const Navbar = () => {
   return (
  <div className="fixed top-5 left-1/2 transform -translate-x-1/2 w-full max-w-screen-lg z-50 px-2">
   <div className="">
-    <div className={`navbar shadow-2xl ${dark?" bg-black/30" : "bg-white/30"}  backdrop-blur-md rounded-full px-4`}>
+    <div className={`navbar shadow-xl ${dark?" bg-black/30" : "bg-white/30"}  backdrop-blur-md rounded-full px-4`}>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
